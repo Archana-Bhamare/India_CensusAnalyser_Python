@@ -10,7 +10,6 @@ class CensusAnalyzer:
 
     def load_state_code(self):
         """
-
         :return: number of records in file
         """
         try:
