@@ -1,7 +1,5 @@
 import pandas as pd
 from com.bridgelabz.censusanalyser.CensusAnalysisException import CensusAnalysisException
-from com.bridgelabz.censusanalyser.CensusAnalysisHeader import CensusAnalysisHeader
-from com.bridgelabz.censusanalyser.CensusAnalyserStateCode import CensusAnalyserStateCode
 
 
 class CensusAnalyzer:
