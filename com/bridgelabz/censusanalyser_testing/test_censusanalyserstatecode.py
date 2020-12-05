@@ -6,7 +6,7 @@ import pytest
 FILE_PATH = "C:/Users/KatK/PycharmProjects/IndiaStateCensusAnalyser/Data/IndiaStateCode.csv"
 WRONG_FILE_PATH = "C:/Users/KatK/PycharmProjects/IndiaStateCensusAnalyser/Data1/IndiaStateCode.csv"
 WRONG_FILE_TYPE = "C:/Users/KatK/PycharmProjects/IndiaStateCensusAnalyser/Data/IndiaStateCode.txt"
-WRONG_FILE_DELIMITER = "C:/Users/KatK/PycharmProjects/IndiaStateCensusAnalyser/Data/IndiaStateCodeInvalidDelimiter.csv"
+WRONG_FILE_DELIMITER = "C:/Users/KatK/PycharmProjects/IndiaStateCensusAnalyser/Data/IndiaStateCodeWrongDelimiter.csv"
 WRONG_FILE_HEADER = "C:/Users/KatK/PycharmProjects/IndiaStateCensusAnalyser/Data/IndiaStateCodeHeader.csv"
 
 # Test Case 2.1-To ensure the number of records
