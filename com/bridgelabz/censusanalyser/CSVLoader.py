@@ -31,3 +31,4 @@ if __name__ == "__main__":
     print(read_csvfile.sort_csv_file())
     print(read_statecode.record_counter())
     print(read_statecode.load_csv_file_in_list())
+    print(read_statecode.sort_csv_file())
