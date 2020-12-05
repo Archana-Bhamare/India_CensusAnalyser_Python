@@ -17,6 +17,9 @@ class CSVLoader(CensusAnalyzer):
     def load_csv_file_in_list(self):
         return super(CSVLoader, self).load_csv_file_in_list()
 
+    def sort_csv_file(self):
+        return super(CSVLoader, self).sort_csv_file()
+
 
 if __name__ == "__main__":
     path_csv_file = "C:/Users/KatK/PycharmProjects/IndiaStateCensusAnalyser/Data/IndiaStateCensusData.csv"
@@ -25,5 +28,6 @@ if __name__ == "__main__":
     read_statecode = CSVLoader(path_statecode_file, obj=CensusAnalyserStateCode())
     print(read_csvfile.record_counter())
     print(read_csvfile.load_csv_file_in_list())
+    print(read_csvfile.sort_csv_file())
     print(read_statecode.record_counter())
     print(read_statecode.load_csv_file_in_list())

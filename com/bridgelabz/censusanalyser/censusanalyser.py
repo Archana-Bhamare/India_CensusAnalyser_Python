@@ -1,10 +1,12 @@
 import pandas as pd
 import csv
+import json
 from com.bridgelabz.censusanalyser.CensusAnalysisException import CensusAnalysisException
 
 
 class CensusAnalyzer:
     list_file = []
+
     def __init__(self, path, obj):
         self.path = path
         self.obj = obj
@@ -27,6 +29,12 @@ class CensusAnalyzer:
         reader = csv.reader(r)
         for row in reader:
             CensusAnalyzer.list_file.append(row)
-        print("List")
         for item in CensusAnalyzer.list_file:
             print(item)
+
+    def sort_csv_file(self):
+        r = open(self.path, 'r')
+        reader = csv.reader(r)
+        sort = sorted(reader)
+        json_data = json.dumps(sort)
+        return json_data
