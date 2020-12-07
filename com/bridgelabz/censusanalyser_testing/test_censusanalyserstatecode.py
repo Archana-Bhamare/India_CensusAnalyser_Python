@@ -1,13 +1,17 @@
+from unittest import result
+
 from com.bridgelabz.censusanalyser.CensusAnalysisException import CensusAnalysisException
 from com.bridgelabz.censusanalyser.censusanalyser import CensusAnalyzer
 from com.bridgelabz.censusanalyser.CensusAnalyserStateCode import CensusAnalyserStateCode
 import pytest
+import json
 
 FILE_PATH = "C:/Users/KatK/PycharmProjects/IndiaStateCensusAnalyser/Data/IndiaStateCode.csv"
 WRONG_FILE_PATH = "C:/Users/KatK/PycharmProjects/IndiaStateCensusAnalyser/Data1/IndiaStateCode.csv"
 WRONG_FILE_TYPE = "C:/Users/KatK/PycharmProjects/IndiaStateCensusAnalyser/Data/IndiaStateCode.txt"
 WRONG_FILE_DELIMITER = "C:/Users/KatK/PycharmProjects/IndiaStateCensusAnalyser/Data/IndiaStateCodeWrongDelimiter.csv"
 WRONG_FILE_HEADER = "C:/Users/KatK/PycharmProjects/IndiaStateCensusAnalyser/Data/IndiaStateCodeHeader.csv"
+
 
 # Test Case 2.1-To ensure the number of records
 def test_check_file_record():
@@ -16,28 +20,42 @@ def test_check_file_record():
 
 
 # Test Case 2.2-if file incorrect return a custom Exception
-def test_check_wrong_file_path():
+def test_statecodefile_for_wrong_file_path():
     csv_loader = CensusAnalyzer(WRONG_FILE_PATH, CensusAnalyserStateCode)
     with pytest.raises(CensusAnalysisException):
         csv_loader.record_counter()
 
 
 # Test Case 2.3-file correct but type incorrect returns exception
-def test_wrong_file_type():
+def test_statecodefile_for_wrong_file_type():
     csv_loader = CensusAnalyzer(WRONG_FILE_TYPE, CensusAnalyserStateCode)
     with pytest.raises(CensusAnalysisException):
         csv_loader.record_counter()
 
 
 # Test case 2.4-file correct but delimiter incorrect return exception
-def test_wrong_file_delimiter():
+def test_statecodefile_for_wrong_file_delimiter():
     csv_loader = CensusAnalyzer(WRONG_FILE_DELIMITER, CensusAnalyserStateCode)
     with pytest.raises(CensusAnalysisException):
         csv_loader.record_counter()
 
 
 # Test case 2.5-file correct but Header incorrect return exception
-def test_wrong_file_header():
+def test_statecodefile_for_wrong_file_header():
     csv_loader = CensusAnalyzer(WRONG_FILE_HEADER, CensusAnalyserStateCode)
     with pytest.raises(CensusAnalysisException):
         csv_loader.record_counter()
+
+def test_statecodefile_sorted_file_by_state():
+    csv_loader = CensusAnalyzer(FILE_PATH, CensusAnalyserStateCode)
+    sorted = csv_loader.sort_file_by()
+    json_dict = json.loads(sorted)
+    assert list(json_dict)[0]['State-Code'] == "AD"
+
+
+def test_statecodefile_sorted_file():
+    csv_loader = CensusAnalyzer(FILE_PATH, CensusAnalyserStateCode)
+    sorted = csv_loader.sort_file_by()
+    json_dict = json.loads(sorted)
+    assert list(json_dict)[-1]['State-Code'] == "WB"
+
