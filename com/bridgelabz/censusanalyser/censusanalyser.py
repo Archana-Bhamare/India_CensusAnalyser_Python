@@ -32,9 +32,18 @@ class CensusAnalyzer:
         for item in CensusAnalyzer.list_file:
             print(item)
 
-    def sort_csv_file(self):
+    def sort_file(self):
+        data_dict = {}
         r = open(self.path, 'r')
         reader = csv.reader(r)
         sort = sorted(reader)
-        json_data = json.dumps(sort)
-        return json_data
+        for record in sort:
+            data_list = list(record)
+            data_dict[data_list[0]] = data_list
+        return json.dumps(data_dict)
+
+    def sort_file_by(self, sort_by=None, asc=True):
+        data = pd.read_csv(self.path)
+        data = data.sort_values(sort_by, ascending=asc)
+        json_format = data.to_json()
+        return json_format
