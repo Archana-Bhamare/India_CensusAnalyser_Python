@@ -32,7 +32,7 @@ if __name__ == "__main__":
     print(read_csvfile.load_csv_file_in_list())
     print("Sorted CSV File is : \n", read_csvfile.sort_file())
     print("Sort By Population : \n", read_csvfile.sort_file_by(sort_by='Population', asc=False))
-    print("Sort By Area : \n", read_csvfile.sort_file_by(sort_by='AreaInSqKm', asc=False))
+    print("Sort By Area : \n", read_csvfile.sort_file_by(sort_by='DensityPerSqKm', asc=False))
     print("----StateCode File----")
     path_statecode_file = "C:/Users/KatK/PycharmProjects/IndiaStateCensusAnalyser/Data/IndiaStateCode.csv"
     read_statecode = CSVLoader(path_statecode_file, obj=CensusAnalyserStateCode())
